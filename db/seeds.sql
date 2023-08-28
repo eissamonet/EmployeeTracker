@@ -9,16 +9,17 @@ VALUES ("Sales Lead", 100000.00, 1),
        ("Salesperson", 80000.00, 1),
        ("Lead Engineer", 150000.00, 2),
        ("Software Engineer", 120000.00, 2),
+       ("Accountant Manager", 160000.00, 3),
        ("Accountant", 125000.00, 3),
        ("Legal Team Lead", 250000.00, 4),
        ("Lawyer", 190000.00, 4);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("David ", "Blain", 1, NULL),
+VALUES ("David", "Blain", 1, NULL),
        ("Samuel", "Roberts", 2, 1),
-       ("Cynthia", "Rodriguez", 3, NULL),
+       ("Cynthia", "Rodriguez",3, NULL),
        ("Kevin", "Bacon", 4, 3),
        ("Malia", "Brown", 5, NULL),
        ("Sarah", "Steward", 6, 5),
-       ("Tom", "Hanky", 7, 5),
+       ("Tom", "Hanky", 7, NULL),
        ("Samantha", "Jones", 8, 5);

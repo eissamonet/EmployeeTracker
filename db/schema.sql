@@ -1,3 +1,4 @@
+-- Active: 1692316495732@@127.0.0.1@3306@employee_db
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 USE employee_db;
@@ -29,4 +30,4 @@ CREATE TABLE employee (
     FOREIGN KEY (manager_id)
     REFERENCES employee(id)
     ON DELETE SET NULL
-);
+);   
