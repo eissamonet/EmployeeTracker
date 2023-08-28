@@ -17,14 +17,14 @@ const db = mysql.createConnection(
   {
     host: '127.0.0.1',
     user: 'root',
-    password: '',
+    password: process.env.PWS,
     database: 'employee_db'
   },
   console.log(`Connected to the employee_db database.`)
 );
 
-//prompt user with a list of options
-function promptUser() {
+//  prompt user to answer questions
+function promptUser () {
   return inquire.prompt([
     {
       type: 'list',
@@ -42,6 +42,8 @@ function promptUser() {
       ]
     }
   ])
+    
+  
     .then((answers) => {
       switch (answers.options) {
         case 'View all departments':
@@ -68,19 +70,26 @@ function promptUser() {
         case 'Update an employee manager':
           updateManager();
           break;
-        case 'Delete a department':
-          deleteDepartment();
-          break;
-        case 'Delete a role':
-          deleteRole();
-          break;
-        case 'Delete an employee':
-          deleteEmployee();
-          break;
         case 'Exit':
           db.end();
           break;
       }
     })
+};
+
+// view all departments
+function viewDepartments() {
+  db.query('SELECT * FROM department', function (err, results) {
+    console.table(results);
+    promptUser();
+  });
+};
+
+// view all employees
+function viewEmployees() {
+  db.query('SELECT * FROM employee', function (err, results) {
+    console.table(results);
+    promptUser();
+  });
 }
 
