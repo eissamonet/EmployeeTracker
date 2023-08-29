@@ -1,9 +1,9 @@
 const inquire = require('inquirer');
 const express = require('express');
+const cTable = require('console.table');
+const db = require('./db/connection');
 // Import and require mysql2
 const mysql = require('mysql2');
-
-require('dotenv').config()
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -12,16 +12,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Connect to database
-const db = mysql.createConnection(
-  {
-    host: '127.0.0.1',
-    user: 'root',
-    password: process.env.PWS,
-    database: 'employee_db'
-  },
-  console.log(`Connected to the employee_db database.`)
-);
 
 //  prompt user to answer questions
 function promptUser () {
