@@ -12,6 +12,12 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// Connect to database
+db.connect(err => {
+  if (err) throw err;
+  console.log('Database connected.');
+  promptUser();
+});
 
 //  prompt user to answer questions
 function promptUser () {
@@ -101,7 +107,7 @@ function addDepartment() {
     }
   ])
     .then((answers) => {
-      db.query(`INSERT INTO department (name) VALUES ('${answers.department}')`, function (err, results) {
+      db.query(`INSERT INTO department (department_name) VALUES ('${answers.department_name}')`, function (err, results) {
         console.log('Department added!');
         promptUser();
       });
@@ -170,19 +176,22 @@ function addEmployee() {
 // update employee role
 function updateEmployee() {
   inquire.prompt([
+    
     {
       type: 'input',
-      name: 'first_name',
-      message: 'Which employee would you like to update?'
+      name: 'id',
+      message: 'Enter the id of the employee you want to update.'
     },
+      
     {
       type: 'input',
-      name: 'role_id',
-      message: 'Enter the role id of the employee you want to update.'
-    }
+      name: "role_id",
+      message: "What is the new role of the employee?"
+
+    },
   ])
     .then((answers) => {
-      db.query(`UPDATE employee SET role_id = '${answers.role_id}' WHERE id = '${answers.employee_id}'`, function (err, results) {
+      db.query(`UPDATE employee SET role_id = '${answers.role_id}' WHERE id = '${answers.id}'`, function (err, results) {
         console.log('Employee updated!');
         promptUser();
       });
