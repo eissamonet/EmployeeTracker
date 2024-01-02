@@ -48,3 +48,5 @@ GIVEN a command-line application that accepts user input
 ## Usage
 
 Run node server.js in the termminal to launch the application.
+
+<img width="1440" alt="Screenshot 2023-09-03 at 11 55 03 AM" src="https://github.com/eissamonet/EmployeeTracker/assets/133728858/2671ed67-6d10-4417-9315-d30a6640dfc4">
