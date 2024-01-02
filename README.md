@@ -42,6 +42,7 @@ GIVEN a command-line application that accepts user input
 
 - [MySQL2 package](https://www.npmjs.com/package/mysql2) to connect to your MySQL database and perform queries.
 - [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4) to interact with the user via the command line.
+- A walkthrough video demonstrating the functionality of the application can be found [here](https://drive.google.com/file/d/1JpA-xPLw_tXzbBAbBsJXiBNbvY8Er3KS/view).
 
 
 ## Usage
